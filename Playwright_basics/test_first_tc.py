@@ -1,4 +1,4 @@
-from playwright.sync_api import sync_playwright, Playwright
+from playwright.sync_api import sync_playwright, Playwright, expect
 
 
 def test_first_tc_scratch(playwright: Playwright) -> None :
@@ -14,7 +14,7 @@ def test_first_tc_scratch(playwright: Playwright) -> None :
     page.locator("#user-name").fill("standard_user")
     page.locator("#password").fill("secret_sauce")
     page.locator("#login-button").click()
-    assert page.locator("//span[text()='Products']").is_visible(), "Products is not visible"
+    expect(page.locator("//span[text()='Products']")).to_be_visible()
     context.tracing.stop(path="trace_first_tc.zip")
 
 
