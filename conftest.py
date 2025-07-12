@@ -8,10 +8,10 @@ def playwright():
 
 @pytest.fixture(scope="function")
 def browser_context(playwright):
-    iphone_13 = playwright.devices['iPhone 13']
+    iphone_15 = playwright.devices['iPhone 15']
     browser = playwright.webkit.launch(headless=False)
     context = browser.new_context(
-        **iphone_13,
+        **iphone_15,
     )
     # browser = playwright.chromium.launch(headless=False, slow_mo=2000)
     # context = browser.new_context()
