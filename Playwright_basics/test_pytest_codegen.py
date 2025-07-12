@@ -1,6 +1,8 @@
 import re
 from playwright.sync_api import Page, expect
 
+from Playwright_basics.test_first_tc import playwright
+
 
 def test_example(page: Page) -> None:
     page.goto("https://www.saucedemo.com/")

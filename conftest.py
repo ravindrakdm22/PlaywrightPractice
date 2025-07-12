@@ -8,8 +8,13 @@ def playwright():
 
 @pytest.fixture(scope="function")
 def browser_context(playwright):
-    browser = playwright.chromium.launch(headless=False, slow_mo=2000)
-    context = browser.new_context()
+    iphone_13 = playwright.devices['iPhone 13']
+    browser = playwright.webkit.launch(headless=False)
+    context = browser.new_context(
+        **iphone_13,
+    )
+    # browser = playwright.chromium.launch(headless=False, slow_mo=2000)
+    # context = browser.new_context()
     context.tracing.start(
         screenshots=True,
         snapshots=True,
