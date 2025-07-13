@@ -1,10 +1,7 @@
 import re
-from playwright.sync_api import Page, expect
+from playwright.sync_api import expect
 
-from Playwright_basics.test_first_tc import playwright
-
-
-def test_example(page: Page) -> None:
+def test_example(page) -> None:
     page.goto("https://www.saucedemo.com/")
     page.locator("[data-test=\"username\"]").click()
     page.locator("[data-test=\"username\"]").fill("standard_user")
