@@ -4,7 +4,7 @@ import pytest
 
 @pytest.mark.parametrize("username, password", [("standard_user", "secret_sauce"),
                                                 pytest.param("visual_user","secret_sauce"),
-                                                pytest.param("performance_glitch_user","secret_sauce1")])
+                                                pytest.param("performance_glitch_user", "secret_sauce1")])
 def test_first_tc_scratch(page, username, password) -> None:
     page.goto("http://www.saucedemo.com")
 
