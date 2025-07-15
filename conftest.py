@@ -8,13 +8,6 @@ def playwright():
 
 @pytest.fixture(scope="function")
 def browser_context(playwright):
-    # iphone_14 = playwright.devices['iPhone 14']
-    # browser = playwright.webkit.launch(headless=False)
-    # context = browser.new_context(
-    #     record_video_dir="videos/",  # Folder where videos will be saved
-    #     record_video_size={"width": 1280, "height": 720},
-    #     **iphone_14,
-    # )
     browser = playwright.chromium.launch(headless=True, slow_mo=1000)
     context = browser.new_context()
     context.tracing.start(
